@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     'django.contrib.admin',
+    'registration',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -109,3 +110,19 @@ STATICFILES_FINDERS = (
 		'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 		'compressor.finders.CompressorFinder',
 )
+
+
+#Registration
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/store/'
+
+# Email Settings
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'jaipuriapratik@gmail.com'
+EMAIL_HOST_PASSWORD = 'PRATIKPJ'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = "bookstore@bookstore-django.herokuapp.com"
