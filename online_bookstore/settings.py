@@ -123,7 +123,9 @@ STATICFILES_FINDERS = (
 		'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 		'compressor.finders.CompressorFinder',
 )
-
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 #Registration
 ACCOUNT_ACTIVATION_DAYS = 7
