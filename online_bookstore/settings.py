@@ -32,13 +32,13 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     'django.contrib.admin',
-    'registration',
-    'social.apps.django_app.default',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'registration',
+    'social.apps.django_app.default',
     'bootstrap3',
     'bootstrap_themes',
     'compressor',
@@ -118,11 +118,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 COMPRESS_ENABLED = True
-STATICFILES_FINDERS = (
-        'django.contrib.staticfiles.finders.FileSystemFinder',
-		'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-		'compressor.finders.CompressorFinder',
-)
+# STATICFILES_FINDERS = (
+#         'django.contrib.staticfiles.finders.FileSystemFinder',
+# 		'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+# 		'compressor.finders.CompressorFinder',
+# )
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
