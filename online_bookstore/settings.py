@@ -130,11 +130,14 @@ STATICFILES_FINDERS = (
 		'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 		'compressor.finders.CompressorFinder',
 )
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+# # STATICFILES_DIRS = (
+# #     os.path.join(BASE_DIR, 'static'),
+# # )
+# print "Static files Dirs", STATICFILES_DIRS
+# print "Static Root", STATIC_ROOT
+# print "BASE DIR",BASE_DIR
+# print "Project dir",PROJECT_ROOT
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 #Registration
 ACCOUNT_ACTIVATION_DAYS = 7
