@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = (
     'django.contrib.admin',
     'registration',
+    'social.apps.django_app.default',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -66,6 +67,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect'
+
             ],
         },
     },
@@ -74,8 +78,15 @@ TEMPLATES = [
 WSGI_APPLICATION = 'online_bookstore.wsgi.application'
 
 
+AUTHENTICATION_BACKENDS = (
+      'social.backends.facebook.FacebookOAuth2',
+	  'django.contrib.auth.backends.ModelBackend' )
+
+
+
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+
 
 DATABASES = {
     'default': {
@@ -122,7 +133,11 @@ LOGIN_REDIRECT_URL = '/store/'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'jaipuriapratik@gmail.com'
-EMAIL_HOST_PASSWORD = 'PRATIKPJ'
+EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "bookstore@bookstore-django.herokuapp.com"
+
+#social_auth facebook
+SOCIAL_AUTH_FACEBOOK_KEY='1003695826434638'
+SOCIAL_AUTH_FACEBOOK_SECRET='59a7c603d6f832b2cabb80eff918c26f'
