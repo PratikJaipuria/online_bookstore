@@ -1,1 +1,1 @@
-web: gunicorn online_bookstore.wsgi --log-file -
+web: gunicorn online_bookstore.wsgi:application --preload --workers 1 --log-file -
