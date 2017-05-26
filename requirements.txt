@@ -6,4 +6,3 @@ django-compressor==1.5
 python-social-auth==0.2.7
 wsgiref==0.1.2
 gunicorn==19.6.0
-whitenoise==3.3.0
