@@ -118,7 +118,7 @@ DATABASES = {
     #      'ENGINE': 'django.db.backends.postgresql_psycopg2',
     #      'NAME': 'djangoappTest',
     #      'USER': 'postgres',
-    #     'PASSWORD': 'nvidia2US',
+    #     'PASSWORD': '',
     #     'HOST': 'localhost',
     #     'PORT':'5432'
     # }
