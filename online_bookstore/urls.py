@@ -10,7 +10,7 @@ v1_api.register(ReviewResource())
 
 urlpatterns = [
     # Examples:
-    # url(r'^$', 'online_bookstore.views.home', name='home'),
+    url(r'^$', include('store.urls'),name='store'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'store/',include('store.urls'),name='store'),
