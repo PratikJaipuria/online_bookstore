@@ -1,1 +1,1 @@
-web: python online_bookstore/manage.py collectstatic --noinput; bin/gunicorn_django --workers=4 --bind=0.0.0.0:$PORT online_bookstore/settings.py
+web: gunicorn online_bookstore.wsgi:application --preload --workers 1 --log-file -
