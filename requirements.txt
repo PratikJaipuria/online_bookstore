@@ -11,3 +11,4 @@ django-tastypie
 paypalrestsdk
 stripe
 Pillow
+whitenoise
