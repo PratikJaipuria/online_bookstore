@@ -37,6 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'django.contrib.gis',
+    'tastypie',
     'registration',
     'social.apps.django_app.default',
     'bootstrap3',
@@ -70,7 +72,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'social.apps.django_app.context_processors.backends',
-                'social.apps.django_app.context_processors.login_redirect'
+                'social.apps.django_app.context_processors.login_redirect',
+                'django.template.context_processors.media',
 
             ],
         },
@@ -105,20 +108,30 @@ AUTHENTICATION_BACKENDS = (
 #     }
 #
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
     # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'dcqmlqgks2n1jn',
-    #     'USER': 'afiifvnrhrhiom',
-    #     'PASSWORD': '1a83bc0c86756a894fc571cc6993f0aba00959be657f89e256615f6ecc240573',
-    #     # 'HOST': 'ec2-23-23-227-188.compute-1.amazonaws.com',
-    #      'HOST': 'localhost',
-    #      'PORT': '5432',
+    #      'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #      'NAME': 'djangoappTest',
+    #      'USER': 'postgres',
+    #     'PASSWORD': 'nvidia2US',
+    #     'HOST': 'localhost',
+    #     'PORT':'5432'
     # }
+
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dcqmlqgks2n1jn',
+        'USER': 'afiifvnrhrhiom',
+        'PASSWORD': '1a83bc0c86756a894fc571cc6993f0aba00959be657f89e256615f6ecc240573',
+        'HOST': 'ec2-23-23-227-188.compute-1.amazonaws.com',
+         # 'HOST': 'localhost',
+         'PORT': '5432',
+    }
 }
 
 
@@ -147,6 +160,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# print STATIC_ROOT
 STATIC_URL = '/static/'
 COMPRESS_ENABLED = True
 STATICFILES_FINDERS = (
@@ -154,9 +168,13 @@ STATICFILES_FINDERS = (
 		'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 		'compressor.finders.CompressorFinder',
 )
-# # STATICFILES_DIRS = (
-# #     os.path.join(BASE_DIR, 'static'),
-# # )
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = "/media/"
+
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )
 # print "Static files Dirs", STATICFILES_DIRS
 # print "Static Root", STATIC_ROOT
 # print "BASE DIR",BASE_DIR
@@ -171,13 +189,18 @@ LOGIN_REDIRECT_URL = '/store/'
 # Email Settings
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'jaipuriapratik@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_PASSWORD')
+EMAIL_HOST = 'smtp.mailgun.org'
+EMAIL_HOST_USER = 'postmaster@sandboxbbcb8b207a524e2ba0926d64b529250b.mailgun.org'
+EMAIL_HOST_PASSWORD = "7f6aff4aefde37262abded79f1bedf8b"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "bookstore@bookstore-django.herokuapp.com"
 
-#social_auth facebook
+# social_auth facebook
 SOCIAL_AUTH_FACEBOOK_KEY='1003695826434638'
 SOCIAL_AUTH_FACEBOOK_SECRET='59a7c603d6f832b2cabb80eff918c26f'
+
+
+GEOIP_PATH= 'geo/'
+
+# AUTH_USER_MODEL = 'store.Author'
