@@ -10,3 +10,4 @@ psycopg2
 django-tastypie
 paypalrestsdk
 stripe
+Pillow
