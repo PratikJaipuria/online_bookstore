@@ -7,3 +7,6 @@ python-social-auth==0.2.7
 wsgiref==0.1.2
 gunicorn
 psycopg2
+django-tastypie
+paypalrestsdk
+stripe
